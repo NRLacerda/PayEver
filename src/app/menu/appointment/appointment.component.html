@@ -1,11 +1,23 @@
-<div class="dialog-title" cdkDrag cdkDragRootElement=".cdk-overlay-pane"></div>
-<form>
-    <mat-form-field class="example-full-width">
-        <mat-label>Add a title</mat-label>
-        <input matInput>
-      </mat-form-field>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,0"
+/>
+<form [formGroup]="newAppointment" (submit)="submitAppointment()">
+    <div class="dialog-title" cdkDrag cdkDragRootElement=".cdk-overlay-pane">Drag</div>
+    <div class="row row-identificacao">
+        <mat-form-field class="example-full-width">
+            <mat-label>Add a title</mat-label>
+            <input matInput formControlName="title">
+        </mat-form-field>
+    </div>
+    <div class="row row-identificacao">
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea matInput rows="5" formControlName="description"></textarea>
+        </mat-form-field>
+    </div>
       <mat-dialog-actions align="end">
-        <button mat-button mat-dialog-close (click)="closeApppointment()">Cancel</button>
-        <button mat-raised-button color="warn">Save</button>
+        <button mat-raised-button mat-dialog-close (click)="closeApppointment()">Cancel</button>
+        <button type="submit" mat-raised-button color="warn">Save</button>
       </mat-dialog-actions>
 </form>

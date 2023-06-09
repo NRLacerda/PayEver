@@ -11,11 +11,7 @@ import {CdkDrag} from '@angular/cdk/drag-drop';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { AppointmentComponent } from './appointment/appointment.component';
-
-
-
-
-
+import { ReactiveFormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -31,7 +27,8 @@ import { AppointmentComponent } from './appointment/appointment.component';
     MatNativeDateModule,
     CdkDrag,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule
   ]
 })
 export class MenuModule { }

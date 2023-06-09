@@ -7,11 +7,11 @@ const routes: Routes = [
   {
     // usa o lazy load para não carregar todos arquivos de uma vez e poder 
     // otimizar a inicialização das rotas
-    path:'menu',
+    path:'**',
     loadChildren:()=>import('./menu/menu.module').then(m=>m.MenuModule)
   },
   {
-		path: '**',
+		path: 'notfound',
 		component: NotFoundComponent,
 	}
 ];
