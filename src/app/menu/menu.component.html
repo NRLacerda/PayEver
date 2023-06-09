@@ -25,12 +25,16 @@
         <p>
           <ng-container *ngFor="let appointment of appointments">
             <div *ngIf="appointment.date === hour && appointment.date === hour">
-              <button (click)="openDetails()">Open</button>
               <ul>
                 <li>{{ appointment.title }}</li>
+                <button (click)="openDetails()">
+                  <span class="material-symbols-outlined">
+                    expand_more
+                    </span>
+                </button>
                 <div [class.appointmentDetails]="detailsOpen">
-                  <li>{{ appointment.description }}</li>
-                  <li>{{ appointment.date }}</li>
+                  <li>Description: {{ appointment.description }}</li>
+                  <li>Time: {{ appointment.date }}</li>
                 </div>
               </ul>
             </div>

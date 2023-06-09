@@ -13,7 +13,7 @@ export class MenuComponent implements OnInit{
   hoursAMPM: string[] = [];
   selectedHour: string = '';
   appointments: IAppointment[] = [];
-  detailsOpen: boolean = false;
+  detailsOpen: boolean = true;
 
   constructor(private dialog : MatDialog, private Appointments: NewAppointmentService ){
     this.generateHoursAMPM();
@@ -27,7 +27,7 @@ export class MenuComponent implements OnInit{
 
   openNewAppointment(enterAnimationDuration: string, exitAnimationDuration: string, date:string): void {
       const dialogConfig = {
-        width: '500px',
+        width: '50rem',
         data: {
           enterAnimationDuration,
           exitAnimationDuration,

@@ -3,14 +3,26 @@
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,0"
 />
 <form [formGroup]="newAppointment" (submit)="submitAppointment()">
-    <div class="dialog-title" cdkDrag cdkDragRootElement=".cdk-overlay-pane">Drag</div>
+  <div class="modal">
+    <div class="dialog-title" cdkDrag cdkDragRootElement=".cdk-overlay-pane">
+      <div class="handle">
+        <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+          <path
+            d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"
+          ></path>
+          <path d="M0 0h24v24H0z" fill="none"></path>
+        </svg>
+      </div>
+    </div>
+    
+    <h2 mat-dialog-title>New Appointment</h2>
     <div class="row row-identificacao">
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="input">
             <mat-label>Add a title</mat-label>
             <input matInput formControlName="title">
         </mat-form-field>
     </div>
-    <div class="row row-identificacao">
+    <div class="row row-identificacao input">
         <mat-form-field>
             <mat-label>Description</mat-label>
             <textarea matInput rows="5" formControlName="description"></textarea>
@@ -20,4 +32,5 @@
         <button mat-raised-button mat-dialog-close (click)="closeApppointment()">Cancel</button>
         <button type="submit" mat-raised-button color="warn" (click)="closeApppointment()">Save</button>
       </mat-dialog-actions>
+  </div>
 </form>
