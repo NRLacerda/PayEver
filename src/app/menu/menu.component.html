@@ -2,7 +2,7 @@
   rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
 />
-<div>
+<div class="center">
   <mat-form-field>
     <mat-label>Choose a date</mat-label>
     <input matInput [matDatepicker]="picker" />
@@ -10,12 +10,14 @@
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
+  <mat-divider></mat-divider>
   <table>
     <thead>
       <tr>
         <th>Hour</th>
       </tr>
     </thead>
+    <mat-divider></mat-divider>
     <tbody>
       <tr
         *ngFor="let hour of hoursAMPM"
@@ -26,13 +28,26 @@
           <ng-container *ngFor="let appointment of appointments">
             <div *ngIf="appointment.date === hour && appointment.date === hour">
               <ul>
-                <li>{{ appointment.title }}</li>
+                <p>{{ appointment.title }}</p>
                 <button (click)="openDetails()">
-                  <span class="material-symbols-outlined">
+                  <span
+                    *ngIf="detailsOpen; else closeDetails"
+                    class="material-symbols-outlined"
+                  >
                     expand_more
-                    </span>
+                  </span>
+                  <ng-template #closeDetails>
+                    <span #closeDetails class="material-symbols-outlined">
+                      close
+                    </span></ng-template>
                 </button>
-                <div [class.appointmentDetails]="detailsOpen">
+                <span
+                class="material-symbols-outlined"
+                (click)="deleteAppointment(appointment.id)"
+              >
+                delete
+              </span>
+                <div [class.appointmentDetails]="detailsOpen" class="details">
                   <li>Description: {{ appointment.description }}</li>
                   <li>Time: {{ appointment.date }}</li>
                 </div>
@@ -43,16 +58,12 @@
       </tr>
     </tbody>
   </table>
+  <mat-divider></mat-divider>
 </div>
 <div *ngFor="let appointment of appointments">
   <h2>{{ appointment.title }}</h2>
   <p>ID: {{ appointment.id }}</p>
   <p>{{ appointment.description }}</p>
   <p>{{ appointment.date }}</p>
-  <span
-    class="material-symbols-outlined"
-    (click)="deleteAppointment(appointment.id)"
-  >
-    delete
-  </span>
+
 </div>

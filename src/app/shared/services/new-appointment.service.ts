@@ -5,26 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class NewAppointmentService {
-  protected Appointments:IAppointment[]=[
-    {
-      "id":0,
-      "title":"teste",
-      "description":"teste descipr",
-      "date":"teste data"
-    },
-    {
-      "id":1,
-      "title":"teste2",
-      "description":"teste descipr",
-      "date":"teste data"
-    },
-    {
-      "id":2,
-      "title":"teste3",
-      "description":"teste descipr",
-      "date":"teste data"
-    }
-  ]
+  protected Appointments:IAppointment[]=[]
 
   constructor() { }
   submitAppointment(id:number,title:string, description:string, date:string){

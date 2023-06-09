@@ -16,6 +16,8 @@
     </div>
     
     <h2 mat-dialog-title>New Appointment</h2>
+    <mat-divider></mat-divider>
+
     <div class="row row-identificacao">
         <mat-form-field class="input">
             <mat-label>Add a title</mat-label>
@@ -30,7 +32,7 @@
     </div>
       <mat-dialog-actions align="end">
         <button mat-raised-button mat-dialog-close (click)="closeApppointment()">Cancel</button>
-        <button type="submit" mat-raised-button color="warn" (click)="closeApppointment()">Save</button>
+        <button type="submit" mat-raised-button color="primary" (click)="closeApppointment()">Save</button>
       </mat-dialog-actions>
   </div>
 </form>

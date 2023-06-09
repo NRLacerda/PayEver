@@ -1,3 +1,7 @@
+.center{
+    margin: 1rem;
+    margin-bottom: 1rem;
+}
 body {
     margin: 0;
     padding: 0;
@@ -6,9 +10,12 @@ body {
     align-items: center;
 }
 .selected {
-    background-color: red;
+    background-color: rgb(0, 153, 255);
     color: white;
   }
+.details{
+    margin: 5px;
+}
 .appointmentDetails{
     display: none;
 }

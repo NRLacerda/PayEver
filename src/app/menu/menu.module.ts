@@ -13,6 +13,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsModule} from '@angular/forms'
 import {MatTableModule} from '@angular/material/table';
 import { AppointmentModalComponent } from './appointment/appointment.component';
+import {MatDividerModule} from '@angular/material/divider';
+
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import { AppointmentModalComponent } from './appointment/appointment.component';
     MatDialogModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatTableModule
+    MatTableModule,
+    MatDividerModule
   ]
 })
 export class MenuModule { }
