@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <div>
     <mat-form-field>
         <mat-label>Choose a date</mat-label>
@@ -15,9 +16,17 @@
         <tbody>
             <tr *ngFor="let hour of hoursAMPM" [class.selected]="isHourSelected(hour)">
               <td (click)="selectHour(hour)">{{ hour }}
-                <p *ngIf=""></p>
               </td>
             </tr>
           </tbody>
       </table>    
+</div>
+<div *ngFor="let appointment of appointments">
+  <h2>{{ appointment.title }}</h2>
+  <p> ID: {{appointment.id}}</p>
+  <p>{{ appointment.description }}</p>
+  <p>{{ appointment.date }}</p>
+  <span class="material-symbols-outlined" (click)="deleteAppointment()">
+    delete
+    </span>
 </div>

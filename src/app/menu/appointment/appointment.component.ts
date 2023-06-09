@@ -19,7 +19,6 @@ constructor(private matDialogRef: MatDialogRef<AppointmentComponent>,private App
   this.newDate=''
 }
 ngOnInit():void{
-  console.log(this.date.date)
   this.newDate = this.date.date
   this.newDate.toString()
 }
@@ -27,6 +26,6 @@ closeApppointment(){
   this.matDialogRef.close(null);
 }
 submitAppointment(){
-  this.AppointmentService.submitAppointment(this.newAppointment.value.title ?? '', this.newAppointment.value.description ?? '', this.newDate ?? '')
+  this.AppointmentService.submitAppointment(1,this.newAppointment.value.title ?? '', this.newAppointment.value.description ?? '', this.newDate ?? '')
 }
 }
