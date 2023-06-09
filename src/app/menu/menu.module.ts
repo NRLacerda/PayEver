@@ -10,13 +10,15 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {CdkDrag} from '@angular/cdk/drag-drop';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
-import { AppointmentComponent } from './appointment/appointment.component';
 import { ReactiveFormsModule} from '@angular/forms'
+import {MatTableModule} from '@angular/material/table';
+import { AppointmentModalComponent } from './appointment/appointment.component';
+
 
 @NgModule({
   declarations: [
     MenuComponent,
-    AppointmentComponent
+    AppointmentModalComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { ReactiveFormsModule} from '@angular/forms'
     CdkDrag,
     MatDialogModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule
   ]
 })
 export class MenuModule { }

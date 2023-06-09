@@ -37,7 +37,8 @@ export class NewAppointmentService {
       "date":date
     }
     this.Appointments.push(newAppointment);
-    this.searchAppointmentById(id)
+    console.log(this.Appointments)
+    //this.searchAppointmentById(id)
   }
 
   getLastId(): number {
@@ -47,10 +48,15 @@ export class NewAppointmentService {
     return lastId;
   }
 
+  async removeAppointmentById(id: number): Promise<void> {
+    console.log(this.Appointments)
+    this.Appointments = this.Appointments.filter(appointment => appointment.id !== id);
+    console.log(this.Appointments)
+  }
 
-  searchAppointmentById(id: number): number | null {
+  getAppointmentById(id: number): IAppointment |undefined {
     const appointment = this.Appointments.find(app => app.id === id);
-    return appointment ? appointment.id : null;
+    return appointment ;
   }
   
   getAllAppointments():IAppointment[]{

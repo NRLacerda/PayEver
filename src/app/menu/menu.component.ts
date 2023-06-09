@@ -1,6 +1,6 @@
 import { IAppointment } from './../shared/models/appointments.model';
 import { Component, OnInit } from '@angular/core';
-import { AppointmentComponent } from './appointment/appointment.component';
+import { AppointmentModalComponent } from './appointment/appointment.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { NewAppointmentService } from '../shared/services/new-appointment.service';
 
@@ -13,15 +13,18 @@ export class MenuComponent implements OnInit{
   hoursAMPM: string[] = [];
   selectedHour: string = '';
   appointments: IAppointment[] = [];
-
-
+  detailsOpen: boolean = false;
 
   constructor(private dialog : MatDialog, private Appointments: NewAppointmentService ){
     this.generateHoursAMPM();
+    var appointmentDetails = document.getElementById('el');
+
   }
+
   ngOnInit():void{
     this.appointments = this.Appointments.getAllAppointments();
   }
+
   openNewAppointment(enterAnimationDuration: string, exitAnimationDuration: string, date:string): void {
       const dialogConfig = {
         width: '500px',
@@ -31,11 +34,14 @@ export class MenuComponent implements OnInit{
           date
         },
       }
-    this.dialog.open(AppointmentComponent, dialogConfig);
+    this.dialog.open(AppointmentModalComponent, dialogConfig);
   }
-  deleteAppointment(){
-    
+
+  async deleteAppointment(id:number){
+    await this.Appointments.removeAppointmentById(id)
+    this.appointments = this.Appointments.getAllAppointments();
   }
+  
   generateHoursAMPM() {
     for (let i = 0; i < 24; i++) {
       const hour = i % 12 || 12;
@@ -43,11 +49,14 @@ export class MenuComponent implements OnInit{
       this.hoursAMPM.push(hour+":00" + ' ' + suffix);
     }
   }
+
   selectHour(hour: string) {
     this.selectedHour = hour;
-
     this.openNewAppointment('0ms', '0ms',hour);
+  }
 
+  openDetails(){
+  this.detailsOpen = !this.detailsOpen;
   }
 
   convertTo24HourFormat(time: string): string {

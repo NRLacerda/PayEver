@@ -1,32 +1,54 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+/>
 <div>
-    <mat-form-field>
-        <mat-label>Choose a date</mat-label>
-        <input matInput [matDatepicker]="picker">
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <table>
-        <thead>
-          <tr>
-            <th>Hour</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let hour of hoursAMPM" [class.selected]="isHourSelected(hour)">
-              <td (click)="selectHour(hour)">{{ hour }}
-              </td>
-            </tr>
-          </tbody>
-      </table>    
+  <mat-form-field>
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <table>
+    <thead>
+      <tr>
+        <th>Hour</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let hour of hoursAMPM"
+        [class.selected]="isHourSelected(hour)"
+      >
+        <td (click)="selectHour(hour)">{{ hour }}</td>
+        <p>
+          <ng-container *ngFor="let appointment of appointments">
+            <div *ngIf="appointment.date === hour && appointment.date === hour">
+              <button (click)="openDetails()">Open</button>
+              <ul>
+                <li>{{ appointment.title }}</li>
+                <div [class.appointmentDetails]="detailsOpen">
+                  <li>{{ appointment.description }}</li>
+                  <li>{{ appointment.date }}</li>
+                </div>
+              </ul>
+            </div>
+          </ng-container>
+        </p>
+      </tr>
+    </tbody>
+  </table>
 </div>
 <div *ngFor="let appointment of appointments">
   <h2>{{ appointment.title }}</h2>
-  <p> ID: {{appointment.id}}</p>
+  <p>ID: {{ appointment.id }}</p>
   <p>{{ appointment.description }}</p>
   <p>{{ appointment.date }}</p>
-  <span class="material-symbols-outlined" (click)="deleteAppointment()">
+  <span
+    class="material-symbols-outlined"
+    (click)="deleteAppointment(appointment.id)"
+  >
     delete
-    </span>
+  </span>
 </div>

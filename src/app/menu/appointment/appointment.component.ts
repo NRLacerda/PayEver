@@ -8,14 +8,14 @@ import { Input } from '@angular/core';
   templateUrl: './appointment.component.html',
   styleUrls: ['./appointment.component.scss']
 })
-export class AppointmentComponent {
+export class AppointmentModalComponent {
   newDate:string;
   newAppointment = new FormGroup({
     title: new FormControl(''),
     description: new FormControl(''),
     date:new FormControl(''),
   })
-constructor(private matDialogRef: MatDialogRef<AppointmentComponent>,private AppointmentService:NewAppointmentService,@Inject(MAT_DIALOG_DATA) public date: any ){
+constructor(private matDialogRef: MatDialogRef<AppointmentModalComponent>,private AppointmentService:NewAppointmentService,@Inject(MAT_DIALOG_DATA) public date: any ){
   this.newDate=''
 }
 ngOnInit():void{
