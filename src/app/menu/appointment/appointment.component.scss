@@ -1,0 +1,115 @@
+div.dialog-title {
+    display: flex;
+    justify-content: space-between;
+
+    h2 {
+        margin-bottom: 0;
+        padding: 0 24px 0px;
+
+    }
+
+    div.handle {
+        cursor: move;
+        color: #ccc;
+        padding: 0 24px 0px;
+
+        &::before {
+            display: inline-block;
+            width: 0;
+            height: 40px;
+            content: "";
+            vertical-align: 0;
+        }
+    }
+}
+.mat-mdc-dialog-content {
+    padding: 0;
+
+    .anexos {
+       padding: 1rem 0; 
+    }
+
+    .row {  
+        padding-right: 0.001rem;  
+        
+        &.row-identificacao {
+            grid-template-columns: minmax(150px, 0.3fr) auto;
+        }
+
+        &.row-form {
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        }
+        &.row-help{
+            display: flex;
+            justify-content: center;
+        }
+        
+        &:first-child {
+            margin-top: 1rem;
+        }
+        &.row-upload{
+            margin-bottom: 1rem;
+        }
+
+        margin-left: unset;
+        margin-right: unset;
+        margin-bottom: 0.4rem;
+
+        mat-form-field {
+            width: 100%;
+        }
+    }    
+    
+    .mat-divider {
+        padding-bottom: 1.7rem;
+    }   
+
+    .mat-mdc-tab-group::ng-deep {    
+        
+        .mat-mdc-tab-body {
+            .mat-mdc-tab-body-content {
+                padding: 0 24px; 
+            }
+
+            &.padding-off {
+                >.mat-mdc-tab-body-content {
+                    padding: 0;
+                }                
+            }
+        }
+
+        .mat-mdc-tab-body {
+            overflow-y: hidden;
+        }
+    }
+}
+.questionMark{
+    display: flex;
+    justify-content: end;
+    margin-bottom: 1rem;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 500px) {   
+    .mat-mdc-dialog-actions {
+        flex-direction: column;
+
+        button {
+            width: 100%;
+        }
+
+        .grupo-acoes {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            button {
+                width: 100%;
+                margin-left: unset;
+                margin-top: 0.5rem;
+            }
+        }
+    }
+}
