@@ -7,11 +7,10 @@ import { Injectable } from '@angular/core';
 export class NewAppointmentService {
   protected Appointments:IAppointment[]=[]
 
-  constructor() { }
   submitAppointment(id:number,title:string, description:string, date:string){
-    var newId:number = this.getLastId()
+    let newId:number = this.getLastId()
     newId++
-    var newAppointment={
+    const newAppointment={
       "id":newId,
       "title":title,
       "description":description,

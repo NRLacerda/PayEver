@@ -6,10 +6,10 @@ import { Component,Input } from '@angular/core';
   styleUrls: ['./appointment-item.component.scss']
 })
 export class AppointmentItemComponent {
-  @Input() id : number=0;
-  @Input() title : string='';
-  @Input() description : string='';
-  @Input() date : string='';
+  @Input() id =0;
+  @Input() title ='';
+  @Input() description ='';
+  @Input() date ='';
   constructor(){
   }
   

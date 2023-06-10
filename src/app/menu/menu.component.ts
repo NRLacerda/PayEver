@@ -1,7 +1,7 @@
 import { IAppointment } from './../shared/models/appointments.model';
 import { Component, OnInit } from '@angular/core';
 import { AppointmentModalComponent } from './appointment/appointment.component';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog} from '@angular/material/dialog';
 import { NewAppointmentService } from '../shared/services/new-appointment.service';
 
 @Component({
@@ -11,14 +11,12 @@ import { NewAppointmentService } from '../shared/services/new-appointment.servic
 })
 export class MenuComponent implements OnInit{
   hoursAMPM: string[] = [];
-  selectedHour: string = '';
+  selectedHour= '';
   appointments: IAppointment[] = [];
-  detailsOpen: boolean = true;
+  detailsOpen= true;
 
   constructor(private dialog : MatDialog, private Appointments: NewAppointmentService ){
     this.generateHoursAMPM();
-    var appointmentDetails = document.getElementById('el');
-
   }
 
   ngOnInit():void{
@@ -52,27 +50,14 @@ export class MenuComponent implements OnInit{
 
   selectHour(hour: string) {
     this.selectedHour = hour;
+    console.log(this.selectedHour)
     this.openNewAppointment('0ms', '0ms',hour);
   }
 
   openDetails(){
   this.detailsOpen = !this.detailsOpen;
   }
-
-  convertTo24HourFormat(time: string): string {
-    const [inputTime, meridiem] = time.split(' ');
-  
-    let [hours, minutes] = inputTime.split(':');
-  
-    if (meridiem.toLowerCase() === 'pm') {
-      hours = String(Number(hours) + 12);
-    } else if (meridiem.toLowerCase() === 'am' && hours === '12') {
-      hours = '00';
-    }
-  
-    return `${hours}:${minutes}`;
-  }
-  
+ 
   isHourSelected(hour: string) {
     
     return this.selectedHour === hour;

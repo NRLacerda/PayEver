@@ -1,8 +1,7 @@
-import { Component, Inject, OnInit  } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormControl,FormGroup} from '@angular/forms'
 import { NewAppointmentService } from 'src/app/shared/services/new-appointment.service';
-import { Input } from '@angular/core';
 @Component({
   selector: 'app-appointment',
   templateUrl: './appointment.component.html',
